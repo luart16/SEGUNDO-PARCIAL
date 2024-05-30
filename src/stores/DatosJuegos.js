@@ -1,4 +1,3 @@
-
 import { defineStore } from 'pinia'
 
 export const juegosGuardados = defineStore('juegoStore', {
@@ -11,3 +10,4 @@ export const juegosGuardados = defineStore('juegoStore', {
         }
     }
 })
+
