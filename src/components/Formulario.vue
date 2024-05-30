@@ -3,10 +3,10 @@
         <div>            
             <form @submit.prevent="guardarDatos">
                 <label for="nombre">Nombre</label>
-                <input type="text" v-model="nombre" id="nombre" required>
+                <input type="text" v-model="nombre" id="nombre" placeholder="Cualquier Texto" required>
   
                 <label>Plataforma</label>
-                <select v-model="plataforma" required>
+                <select v-model="plataforma" placeholder="C | PlayStation | Xbox One" required>
                     <option value="">PC | PlayStation | Xbox One</option>
                     <option value="PC">PC</option>
                     <option value="PlayStation">PlayStation</option>
@@ -15,7 +15,7 @@
                 </select>
   
                 <label>Estado</label>
-                <select name="estado" id="estado" v-model="estado" required>
+                <select name="estado" id="estado" v-model="estado" placeholder="Pendiente | Jugando | Completado" required>
                     <option value="">Pendiente | Jugando | Completado</option>
                     <option value="Jugando">Jugando</option>
                     <option value="Completado">Completado</option>
@@ -23,7 +23,7 @@
                 </select>
   
                 <label for="puntaje">Puntaje</label>
-                <input type="number" v-model="puntaje" name="puntaje" id="puntaje" min="1" max="10">
+                <input type="number" v-model="puntaje" name="puntaje" id="puntaje"placeholder="Valor numérico del 1 al 10" min="1" max="10">
   
                 <div class="botonRegistrar">
                    <button type="submit">Registrar videojuego</button>

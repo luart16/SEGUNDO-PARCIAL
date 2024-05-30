@@ -1,5 +1,8 @@
 <template>
-    <div class="videojuego-table">
+  <div class="contenedor-Filtro">
+    
+  </div>
+    <div class="tabla-videoJuego">
       <table>
         <thead>
           <tr>
