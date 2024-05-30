@@ -1,9 +1,9 @@
 <template>
-    <div v-if="juego" class="infoJuego">
-        <p>Nombre {{ juego.nombre }} </p>
-        <p>Plataforma {{ juego.plataforma }}</p>
-        <p>Estado {{ juego.estado }}</p>
-        <p>Puntaje {{ juego.puntaje }}</p>
+    <div v-if="Juego" class="infoJuego">
+        <p>Nombre {{ Juego.nombre }} </p>
+        <p>Plataforma {{ Juego.plataforma }}</p>
+        <p>Estado {{ Juego.estado }}</p>
+        <p>Puntaje {{ Juego.puntaje }}</p>
 
     </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 export default {
     props: {
-        juego: {
+        Juego: {
             type: Object,
             default: null
         }

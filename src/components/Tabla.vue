@@ -1,57 +1,58 @@
 <template>
-    <div class="videojuego-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Plataforma</th>
-            <th>Estado</th>
-            <th>Puntaje</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(videojuego, index) in videojuegos" :key="index">
-            <td>{{ videojuego.nombre }}</td>
-            <td>{{ videojuego.plataforma }}</td>
-            <td>{{ videojuego.estado }}</td>
-            <td>{{ videojuego.puntaje }}</td>
-            <td><button @click="seleccionarVideojuego(videojuego)">Mostrar</button></td>
-          </tr>
-        </tbody>
-      </table>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Plataforma</th>
+                    <th>Estado</th>
+                    <th>Puntaje</th>
+                    <th>Más info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(Juego, index) in juegos" :key="index">
+                    <td>{{ Juego.nombre }}</td>
+                    <td>{{ Juego.plataforma }}</td>
+                    <td>{{ Juego.estado }}</td>
+                    <td>{{ Juego.puntaje }}</td>
+                    <td><button @click="seleccionarJuego(Juego)">Más Info</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </template>
-  
-  <script>
-  import { useVideojuegoStore } from '../stores/videojuegoStore'
-  
-  export default {
+</template>
+
+<script>
+import { juegosGuardados } from '../stores/DatosJuegos';
+
+export default {
     props: {
-      onSeleccionarVideojuego: {
+        onSeleccionarJuego:{
         type: Function,
         required: true
-      }
+       } 
     },
-    setup(props) {
-      const videojuegoStore = useVideojuegoStore()
-  
-      const seleccionarVideojuego = (videojuego) => {
-        props.onSeleccionarVideojuego(videojuego)
-      }
-  
-      return { videojuegos: videojuegoStore.videojuegos, seleccionarVideojuego }
+
+    setup(props){
+        const videoJuegoGuardado = juegosGuardados()
+
+        const seleccionarJuego = (Juego) => {
+            props.onSeleccionarJuego(Juego)
+        }
+        return {juegos: videoJuegoGuardado.juegos, seleccionarJuego}
     }
-  }
-  </script>
+}
+</script>
+
 <style>
 button {
     padding: 10px 20px;
     border: none;
-    background-color: #28a745;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: gray;
+    color: black;
+    border-radius: 2px;
+    
 }
 
 table {

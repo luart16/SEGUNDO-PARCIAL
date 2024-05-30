@@ -2,12 +2,33 @@
       <h1>Administración de videojuegos</h1>
       <h2>Nuevo videojuego</h2>
       <Formulario/>
-      <Tabla/>
+      <Tabla @seleccionarJuego="dirigirSeleccion" />
+
+      <MasInformacionJuego :Juego="videojuegoSeleccionado" />
 </template>
 
-<script setup>
-  import Formulario from "./components/Formulario.vue"
-  import Tabla from "./components/Tabla.vue";
+<script>
+import { ref } from 'vue'
+import Formulario from "./components/Formulario.vue"
+import Tabla from "./components/Tabla.vue"
+import MasInformacionJuego from './components/MasInformacionJuego.vue'
+
+export default {
+  components: {
+    Formulario,
+    Tabla,
+    MasInformacionJuego
+  },
+
+  setup() {
+    const videojuegoSeleccionado = ref(null)
+    const dirigirSeleccion = (Juego) => {
+      videojuegoSeleccionado.value = Juego
+    }
+    return { videojuegoSeleccionado, dirigirSeleccion}
+  }
+}
+
 </script>
 
 <style scoped>

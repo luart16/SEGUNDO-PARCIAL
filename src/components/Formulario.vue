@@ -1,6 +1,6 @@
 <template>
     <div class="cuerpoPag">
-        <div>            
+                    
             <form @submit.prevent="guardarDatos">
                 <label for="nombre">Nombre</label>
                 <input type="text" v-model="nombre" id="nombre" required>
@@ -29,8 +29,7 @@
                    <button type="submit">Registrar videojuego</button>
                 </div>
   
-            </form>
-        </div>
+            </form>        
     </div>
 </template>
 
@@ -40,11 +39,11 @@ import { juegosGuardados } from '../stores/DatosJuegos'
 
 export default {
   setup() {
-      const juegos = juegosGuardados()
+      const videoJuegoGuardado = juegosGuardados()
       const nombre = ref('')
       const plataforma = ref('')
       const estado = ref('')
-      const puntaje = ref('')
+      const puntaje = ref(1)
 
       const guardarDatos = () => {
           const nuevoJuego = {
@@ -53,11 +52,11 @@ export default {
               estado: estado.value,
               puntaje: puntaje.value
           }
-          juegos.agregarJuego(nuevoJuego)
+          videoJuegoGuardado.agregarJuego(nuevoJuego)
           nombre.value = ''
           plataforma.value = ''
           estado.value = ''
-          puntaje.value = ''
+          puntaje.value = 1
 
       }
 
