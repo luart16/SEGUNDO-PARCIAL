@@ -1,11 +1,14 @@
-<script setup>
-import formulario from "./components/Formulario.vue" /*acá importo desde el componente formulario*/ 
-</script>
-
 <template>
-  
-  <formulario/> <!--acá llamo lo que importé arriba en script-->
+      <h1>Administración de videojuegos</h1>
+      <h2>Nuevo videojuego</h2>
+      <Formulario/>
+      <Tabla/>
 </template>
+
+<script setup>
+  import Formulario from "./components/Formulario.vue"
+  import Tabla from "./components/Tabla.vue";
+</script>
 
 <style scoped>
 

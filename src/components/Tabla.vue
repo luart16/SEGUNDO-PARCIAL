@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="tabla-videojuego">
       <table>
         <thead>
@@ -29,10 +30,43 @@
   export default {
     props: {
       onSeleccionarVideojuego: {
+=======
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Plataforma</th>
+                    <th>Estado</th>
+                    <th>Puntaje</th>
+                    <th>Más info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(i, index) in Juego" :key="index">
+                    <td>{{ i.nombre }}</td>
+                    <td>{{ i.plataforma }}</td>
+                    <td>{{ i.estado }}</td>
+                    <td>{{ i.puntaje }}</td>
+                    <td><button @click="seleccionarJuego(i)">Más Info</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<script>
+import { JuegosGuardados } from '../stores/DatosJuegos';
+
+export default {
+    props: {
+        onSeleccionarJuego:{
+>>>>>>> 6c7ab2c229f49053c79f531600c0ed9a713c870a
         type: Function,
         required: true
       }
     },
+<<<<<<< HEAD
     setup(props) {
       const videojuegoStore = useVideojuegoStore()
   
@@ -41,6 +75,16 @@
       }
   
       return { videojuegos: videojuegoStore.videojuegos, seleccionarVideojuego }
+=======
+
+    setup(props){
+        const juegoStore = JuegosGuardados()
+
+        const seleccionarJuego = (i) => {
+            props.onSeleccionarJuego(i)
+        }
+        return {Juego: juegoStore.juegos, seleccionarJuego}
+>>>>>>> 6c7ab2c229f49053c79f531600c0ed9a713c870a
     }
   }
   </script>
