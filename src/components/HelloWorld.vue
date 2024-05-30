@@ -1,44 +1,72 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
-</script>
-
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+  <div>
+      <table>
+          <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>Plataforma</th>
+                  <th>Estado</th>
+                  <th>Puntaje</th>
+                  <th>Más info</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(i, index) in Juego" :key="index">
+                  <td>{{ i.nombre }}</td>
+                  <td>{{ i.plataforma }}</td>
+                  <td>{{ i.estado }}</td>
+                  <td>{{ i.puntaje }}</td>
+                  <td><button @click="seleccionarJuego(i)">Más Info</button></td>
+              </tr>
+          </tbody>
+      </table>
   </div>
 </template>
 
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
+<script>
+import { JuegosGuardados } from '../stores/DatosJuegos';
 
-h3 {
-  font-size: 1.2rem;
-}
+export default {
+  props: {
+      onSeleccionarJuego:{
+      type: Function,
+      required: true
+     } 
+  },
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
+  setup(props){
+      const juegosGuardados = JuegosGuardados()
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+      const seleccionarJuego = (juego) => {
+          props.onSeleccionarJuego(juego)
+      }
+      return {Juego: juegosGuardados.juegos, seleccionarJuego}
   }
+}
+</script>
+
+<style>
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
 }
 </style>

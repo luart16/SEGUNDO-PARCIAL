@@ -1,5 +1,5 @@
 <template>
-    <div class="Tabla-Juegos">
+    <div>
         <table>
             <thead>
                 <tr>
@@ -16,7 +16,7 @@
                     <td>{{ i.plataforma }}</td>
                     <td>{{ i.estado }}</td>
                     <td>{{ i.puntaje }}</td>
-                    <td><button @click="seleccionarJuego(juegos)">Más Info</button></td>
+                    <td><button @click="seleccionarJuego(i)">Más Info</button></td>
                 </tr>
             </tbody>
         </table>
@@ -24,23 +24,23 @@
 </template>
 
 <script>
-import { juegosGuardados, juegosGuardados } from '../stores/DatosJuegos';
+import { JuegosGuardados } from '../stores/DatosJuegos';
 
 export default {
     props: {
-       juegoSeleccionado:{
+        onSeleccionarJuego:{
         type: Function,
         required: true
        } 
     },
 
     setup(props){
-        const juegosGuardados = juegosGuardados()
+        const juegoStore = JuegosGuardados()
 
-        const seleccionarJuego = (juego) => {
-            props.onSeleccionarJuego(juego)
+        const seleccionarJuego = (i) => {
+            props.onSeleccionarJuego(i)
         }
-        return {Juego: juegosGuardados.Juego, seleccionarJuego}
+        return {Juego: juegoStore.juegos, seleccionarJuego}
     }
 }
 </script>
