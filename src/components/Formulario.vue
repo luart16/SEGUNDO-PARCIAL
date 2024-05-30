@@ -43,7 +43,7 @@ export default {
       const nombre = ref('')
       const plataforma = ref('')
       const estado = ref('')
-      const puntaje = ref(1)
+      const puntaje = ref('')
 
       const guardarDatos = () => {
           const nuevoJuego = {
@@ -56,7 +56,7 @@ export default {
           nombre.value = ''
           plataforma.value = ''
           estado.value = ''
-          puntaje.value = 1
+          puntaje.value = ''
 
       }
 
