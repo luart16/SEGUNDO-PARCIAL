@@ -1,38 +1,37 @@
 <template>
   <div class="cuerpoPag">
-    <div class="formulario">
-                  
-          <form @submit.prevent="guardarDatos">
-              <label for="nombre">Nombre</label>
-              <input type="text" v-model="nombre" id="nombre" required>
+        <div class="formulario">          
+            <form @submit.prevent="guardarDatos">
+                <label for="nombre">Nombre</label>
+                <input type="text" v-model="nombre" id="nombre" placeholder="Nombre del videojuego">
 
-              <label>Plataforma</label>
-              <select v-model="plataforma" required>
-                  <option value="">PC | PlayStation | Xbox One</option>
-                  <option value="PC">PC</option>
-                  <option value="PlayStation">PlayStation</option>
-                  <option value="Xbox One">Xbox One</option>
+                <label>Plataforma</label>
+                <select v-model="plataforma">
+                    <option value="">PC | PlayStation | Xbox One</option>
+                    <option value="PC">PC</option>
+                    <option value="PlayStation">PlayStation</option>
+                    <option value="Xbox One">Xbox One</option>
 
-              </select>
+                </select>
 
-              <label>Estado</label>
-              <select name="estado" id="estado" v-model="estado" required>
-                  <option value="">Pendiente | Jugando | Completado</option>
-                  <option value="Jugando">Jugando</option>
-                  <option value="Completado">Completado</option>
+                <label>Estado</label>
+                <select name="estado" id="estado" v-model="estado">
+                    <option value="">Pendiente | Jugando | Completado</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Jugando">Jugando</option>
+                    <option value="Completado">Completado</option>
 
-              </select>
+                </select>
 
-              <label for="puntaje">Puntaje</label>
-              <input type="number" v-model="puntaje" name="puntaje" id="puntaje" min="1" max="10">
+                <label for="puntaje">Puntaje</label>
+                <input type="number" v-model.number="puntaje" name="puntaje" id="puntaje" placeholder="Valor numérico del 1 al 10">
 
-              <div class="botonRegistrar">
-                 <button class="botonRegistrar" type="submit">Registrar videojuego</button>
-              </div>
-
-          </form> 
-        </div>       
-  </div>
+                <div class="botonRegistrar">
+                    <button class="botonRegistrar" type="submit">Registrar videojuego</button>
+                </div>
+            </form>      
+        </div>
+    </div>
 </template>
 
 <script>
@@ -40,31 +39,42 @@ import { ref } from 'vue'
 import { juegosGuardados } from '../stores/DatosJuegos'
 
 export default {
-setup() {
-    const videoJuegoGuardado = juegosGuardados()
-    const nombre = ref('')
-    const plataforma = ref('')
-    const estado = ref('')
-    const puntaje = ref('')
+    setup() {
+        const videoJuegoGuardado = juegosGuardados()
+        const nombre = ref('')
+        const plataforma = ref('')
+        const estado = ref('')
+        const puntaje = ref('')
 
-    const guardarDatos = () => {
-        const nuevoJuego = {
-            nombre: nombre.value,
-            plataforma: plataforma.value,
-            estado: estado.value,
-            puntaje: puntaje.value
+        const guardarDatos = () => {
+            if (nombre.value === '') {
+                alert("El nombre es un campo obligatorio");
+            }
+            if (plataforma.value === ''){
+                alert("la plataforma es un campo obligatorio");
+            }
+            if (estado.value === ''){
+                alert("El estado es un campo obligatorio");
+            }
+            else if (puntaje.value < 1 || puntaje.value > 10) {
+                alert("Debe ingresar un valor numérico entre 1 y 10")
+            }
+            else{
+                const nuevoJuego = {
+                    nombre: nombre.value,
+                    plataforma: plataforma.value,
+                    estado: estado.value,
+                    puntaje: puntaje.value
+                }
+                videoJuegoGuardado.agregarJuego(nuevoJuego)
+                nombre.value = ''
+                plataforma.value = ''
+                estado.value = ''
+                puntaje.value = ''
+            }
         }
-        videoJuegoGuardado.agregarJuego(nuevoJuego)
-        nombre.value = ''
-        plataforma.value = ''
-        estado.value = ''
-        puntaje.value = ''
-
+        return { nombre, plataforma, estado, puntaje, guardarDatos}
     }
-
-    return { nombre, plataforma, estado, puntaje, guardarDatos }
-
-}
 }
 </script>
 
