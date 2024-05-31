@@ -16,7 +16,7 @@
                     <td>{{ Juego.plataforma }}</td>
                     <td>{{ Juego.estado }}</td>
                     <td>{{ Juego.puntaje }}</td>
-                    <td><button @click="seleccionarJuego(Juego)">Más Info</button></td>
+                    <td><button @click="seleccionarJuego(Juego)">+</button></td>
                 </tr>
             </tbody>
         </table>
@@ -46,12 +46,11 @@ export default {
 </script>
 
 <style>
-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: gray;
+button {   
+   
+    border: none;    
     color: black;
-    border-radius: 2px;
+    
     
 }
 

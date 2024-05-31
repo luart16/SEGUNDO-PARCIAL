@@ -1,9 +1,9 @@
 <template>
     <div v-if="Juego" class="infoJuego">
-        <p>Nombre {{ Juego.nombre }} </p>
-        <p>Plataforma {{ Juego.plataforma }}</p>
-        <p>Estado {{ Juego.estado }}</p>
-        <p>Puntaje {{ Juego.puntaje }}</p>
+        <p>Nombre: {{ Juego.nombre }} </p>
+        <p>Plataforma: {{ Juego.plataforma }}</p>
+        <p>Estado: {{ Juego.estado }}</p>
+        <p>Puntaje: {{ Juego.puntaje }}</p>
 
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
     border: black 1px solid;
     padding: 1em;
     margin-top: 1em;
+    background-color: white;
 }
 p
 {

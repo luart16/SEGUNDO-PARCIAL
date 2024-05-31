@@ -1,5 +1,6 @@
 <template>
   <div class="cuerpoPag">
+    <div class="formulario">
                   
           <form @submit.prevent="guardarDatos">
               <label for="nombre">Nombre</label>
@@ -26,10 +27,11 @@
               <input type="number" v-model="puntaje" name="puntaje" id="puntaje" min="1" max="10">
 
               <div class="botonRegistrar">
-                 <button type="submit">Registrar videojuego</button>
+                 <button class="botonRegistrar" type="submit">Registrar videojuego</button>
               </div>
 
-          </form>        
+          </form> 
+        </div>       
   </div>
 </template>
 
@@ -76,9 +78,10 @@ background-color: white;
 .cuerpoPag
 {
 background-color: #f0f0f0;
-width: 75%;
+width: 100%;
 margin: auto;
 padding: 30px;
+
 }
 h1
 {
@@ -101,6 +104,20 @@ padding: 8px;
 box-sizing: border-box;
 border: black 1px solid;
 border-radius: 2px;
+
+}
+
+.botonRegistrar
+{
+    width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    
+    border: none;
+    background-color: gray;
+    color: black;
+    border-radius: 2px;
 
 }
 

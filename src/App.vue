@@ -1,10 +1,14 @@
 <template>
-      <h1>Administración de videojuegos</h1>
-      <h2>Nuevo videojuego</h2>
-      <Formulario/>
-      <Tabla @seleccionarJuego="dirigirSeleccion" />
+      <div class="cuerpoPag">
+       <h1>Administración de videojuegos</h1>
+       <h2>Nuevo videojuego</h2>
+       <Formulario/>
+       <Tabla @seleccionarJuego="dirigirSeleccion" />
 
-      <MasInformacionJuego :Juego="videojuegoSeleccionado" />
+       <MasInformacionJuego :Juego="videojuegoSeleccionado" />
+
+      </div>
+      
 </template>
 
 <script>
@@ -31,6 +35,16 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
+h1
+{
+text-align: center;
+}
+h2
+{
+margin-top: 20px;
+text-align: left;
+
+}
 
 </style>
