@@ -109,7 +109,7 @@ border-radius: 2px;
 
 .botonRegistrar
 {
-    width: 50%;
+    width: 100%;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 5px;
