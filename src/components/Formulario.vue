@@ -79,56 +79,41 @@ export default {
 </script>
 
 <style>
-body
-{
-font-family: Arial, Helvetica, sans-serif;
-background-color: white;
-
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
 }
-.cuerpoPag
-{
-background-color: #f0f0f0;
-width: 100%;
-margin: auto;
-padding: 30px;
-
+.cuerpoPag{
+    background-color: #f0f0f0;
+    width: 100%;
+    margin: auto;
+    padding: 30px;
 }
-h1
-{
-text-align: center;
+h1{
+    text-align: center;
 }
-h2
-{
-margin-top: 20px;
-
+h2{
+    margin-top: 20px;
 }
-label
-{
-margin-bottom:  7px;    
-
+label{
+    margin-bottom:  7px;    
 }
-input, select
-{
-width: 100%;
-padding: 8px;
-box-sizing: border-box;
-border: black 1px solid;
-border-radius: 2px;
-
+input, select{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: black 1px solid;
+    border-radius: 2px;
 }
-
-.botonRegistrar
-{
+.botonRegistrar{
     width: 100%;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 5px;
-    
     border: none;
     background-color: gray;
     color: black;
     border-radius: 2px;
-
 }
 
 </style>

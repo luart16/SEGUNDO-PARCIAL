@@ -36,15 +36,22 @@ export default {
 </script>
 
 <style>
-h1
-{
-text-align: center;
+#app {
+  display: flex;
+  padding-left: 25vw;
+  padding-right: 25vw;
+} 
+body{
+  display: flex;
+  align-items: center;
+  
 }
-h2
-{
-margin-top: 20px;
-text-align: left;
-
+h1{
+  text-align: center;
+}
+h2{
+  margin-top: 20px;
+  text-align: left;
 }
 
 </style>
